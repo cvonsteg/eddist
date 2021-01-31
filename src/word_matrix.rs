@@ -1,3 +1,5 @@
+// Brush up on lifetimes for word-matrix struct - https://doc.rust-lang.org/stable/book/ch10-03-lifetime-syntax.html?highlight=lifetimes#lifetime-elision
+
 /// Creates a sparse matrix for word indexing
 ///
 /// # Arguments
