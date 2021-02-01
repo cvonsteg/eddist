@@ -15,11 +15,13 @@ fn main() {
   let first = args.first_word;
   let second = args.second_word;
   let h_dist = hamming_distance(&first, &second);
-  let mut levenshtein_matrix = create_matrix(&first, &second); 
+  let levenshtein_matrix = create_matrix(&first, &second); 
 
   println!("Hamming Distance between '{}' and '{}': {}", first, second, h_dist);
   println!("Edit distance matrix exampe:");
-  println!("{:?}", levenshtein_matrix);
+  for row in levenshtein_matrix.iter() {
+      println!("{:?}", row);
+  };
   println!("Matrix value (1,0): {}", levenshtein_matrix[1][0]);
 
 }
