@@ -41,11 +41,7 @@ pub fn levenshtein_distance(word1: &str, word2: &str) -> i32 {
 /// * `letter1` - Character representing the letter being analysed form word1
 /// * `letter2` - Character representing the letter being analysed from word2
 fn calculate_cost(letter1: char, letter2: char) -> i32 {
-  let mut cost = 1;
-  if letter1 == letter2 {
-    cost = 0 
-  }
-  cost
+  (letter1 == letter2) as i32 // 0 if false, 1 if true
 }
 
 
