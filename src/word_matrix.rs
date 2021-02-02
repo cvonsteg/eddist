@@ -7,7 +7,7 @@
 /// * `word1` - A string slice holding the first word
 /// * `word2` - A string slice hodling the second word
 pub fn create_matrix(word1: &str, word2: &str) -> Vec<Vec<i32>> {
-    let mut matrix = Vec::new();
+  let mut matrix = Vec::new();
   // Populate first row
   let first_row = len_as_i32_vec(&word1);
   matrix.push(first_row);
@@ -18,6 +18,7 @@ pub fn create_matrix(word1: &str, word2: &str) -> Vec<Vec<i32>> {
   }
   matrix
 }
+
 
 /// Creates a vector of i32 values from 0 to the length of a passed word
 ///
