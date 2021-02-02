@@ -9,7 +9,8 @@ Edit distance tools are used to quantify the similarity between 2 strings, prima
 To implement the most commonly used edit distance algorithms in Rust, including the likes of Hamming, Levenshtein, Damerau-Levenshtein distance metrics (and more).
 
 
-## TODO
+## Notes
 
-- Convert word-matrix into a struct including hashmaps to efficiently look-up letters
-- Levenshtein algo from [here](https://people.cs.pitt.edu/~kirk/cs1501/Pruhs/Spring2006/assignments/editdistance/Levenshtein%20Distance.htm)
+- Levenshtein algo [here](https://people.cs.pitt.edu/~kirk/cs1501/Pruhs/Spring2006/assignments/editdistance/Levenshtein%20Distance.htm)
+- Similar implementation in rust to check out [here](https://matklad.github.io/2017/03/12/min-of-three.html)
+
