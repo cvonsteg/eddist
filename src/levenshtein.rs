@@ -26,7 +26,7 @@ pub fn levenshtein_distance(word1: &str, word2: &str) -> i32 {
   let mut matrix = create_matrix(word1, word2);
   for (col, letter_first) in word1.chars().enumerate() {
     for (row, letter_second) in word2.chars().enumerate() {
-      let cost = calculate_cost(&letter_first, &letter_second);
+      let cost = calculate_cost(letter_first, letter_second);
       matrix[row+1][col+1] = get_lev_value(&matrix, col, row, cost);
     }
   }
@@ -40,7 +40,7 @@ pub fn levenshtein_distance(word1: &str, word2: &str) -> i32 {
 ///
 /// * `letter1` - Character representing the letter being analysed form word1
 /// * `letter2` - Character representing the letter being analysed from word2
-fn calculate_cost(letter1: &char, letter2: &char) -> i32 {
+fn calculate_cost(letter1: char, letter2: char) -> i32 {
   let mut cost = 1;
   if letter1 == letter2 {
     cost = 0 
