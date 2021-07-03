@@ -14,7 +14,8 @@ For Unix/MacOS systems, clone the repository and then run the `install.sh` scrip
 
 ```bash
 git clone https://github.com/cvonsteg/eddist.git
-./eddist/install.sh
+cd eddist
+./install.sh
 ```
 
 ## Usage
