@@ -8,32 +8,16 @@
 /// * `word2` - A string slice hodling the second word
 pub fn create_matrix(word1: &str, word2: &str) -> Vec<Vec<i32>> {
   let mut matrix = Vec::new();
-  let word1_len = word1.chars().count();
   // Populate first row
-  let first_row = len_as_i32_vec(&word1_len);
+  let first_row: Vec<i32> = (0..=(word1.len()) as i32).collect();
   matrix.push(first_row);
   // Populate the rest of the rows
-  let cols: Vec<usize> = (1..=word2.chars().count()).collect();
-  for idx in cols {
-    matrix.push(zero_padded_array(&word1_len, &idx));
+  for idx in 1..=word2.len() {
+    matrix.push(zero_padded_array(&(word1.len() + 1), &idx));
   }
   matrix
 }
 
-
-/// Creates a vector of i32 values from 0 to the length of a passed word
-///
-/// # Arguments
-///
-/// * `length` - usize representing vector size
-fn len_as_i32_vec(length: &usize) -> Vec<i32> {
-  //let length = word.chars().count();
-  let mut row = Vec::new();
-  for idx in 0..=*length {
-    row.push(idx as i32)
-  }
-  row
-}
 
 /// Creates a right-padded array of 0s with a defined first value
 ///
@@ -42,10 +26,7 @@ fn len_as_i32_vec(length: &usize) -> Vec<i32> {
 /// * `size` - usize denoting size of the array
 /// * `first_val` - Value to insert at the first index
 fn zero_padded_array(size: &usize, first_val: &usize) -> Vec<i32> {
-  let mut zero_vec: Vec<i32> = Vec::with_capacity(*size);
-  zero_vec.push(*first_val as i32);
-  for _ in 0..*size {
-    zero_vec.push(0);
-  }
-  return  zero_vec;
+  let mut zero_vec: Vec<i32> = vec![0; *size];
+  zero_vec[0] = *first_val as i32;
+  zero_vec
 }

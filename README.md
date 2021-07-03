@@ -8,6 +8,31 @@ Edit distance tools are used to quantify the similarity between 2 strings, prima
 
 To implement the most commonly used edit distance algorithms in Rust, including the likes of Hamming, Levenshtein, Damerau-Levenshtein distance metrics (and more).
 
+## Installation
+
+For Unix/MacOS systems, clone the repository and then run the `install.sh` script
+
+```bash
+git clone https://github.com/cvonsteg/eddist.git
+./eddist/install.sh
+```
+
+## Usage
+
+Currently implemented algorithms are `Hamming` and `Levenshtein` distances.  To use these tools simply run the cli after installing:
+
+```bash
+eddist hamming <first-word> <second-word>
+eddist levenshtein <first-word> <second-word>
+```
+
+For the `Levenshtein` tool, there is an optional flag to show the Levenshtein matrix
+
+```bash
+eddist levenshtein <first-word> <second-word> -m
+# or
+eddist levenshtein <first-word> <second-word> --matrix
+```
 
 ## Notes
 

@@ -1,30 +1,31 @@
 use structopt::StructOpt;
 use eddist::hamming::hamming_distance;
-use eddist::word_matrix::create_matrix;
 use eddist::levenshtein::levenshtein_distance;
 
 
-#[derive(StructOpt)]
-struct Cli {
-  first_word: String,
-  second_word: String
+#[derive(StructOpt, Debug)]
+#[structopt(name="eddist")]
+enum Eddist{
+  #[structopt(name="levenshtein")]
+  Levenshtein {
+    first_word: String,
+    second_word: String,
+    #[structopt(short="m", long="matrix", help="Show the final levenshtein distance matrix")]
+    show_matrix: bool
+  },
+  #[structopt(name="hamming")]
+  Hamming {
+    first_word: String,
+    second_word: String
+  }
 }
 
 
+
 fn main() {
-  let args = Cli::from_args();
-  let first = args.first_word;
-  let second = args.second_word;
-  // let h_dist = hamming_distance(&first, &second);
-  let levenshtein_matrix = create_matrix(&first, &second); 
-
-  // println!("Hamming Distance between '{}' and '{}': {}", first, second, h_dist);
-  println!("Edit distance matrix exampe:");
-  for row in levenshtein_matrix.iter() {
-      println!("{:?}", row);
+  let distance = match Eddist::from_args() {
+    Eddist::Levenshtein{ first_word, second_word, show_matrix} => levenshtein_distance(first_word.as_str(), second_word.as_str(), show_matrix),
+    Eddist::Hamming{ first_word, second_word } => hamming_distance(first_word.as_str(), second_word.as_str())
   };
-  let ld = levenshtein_distance(&first, &second);
-  println!("Lev Dist of {}, {}: {:?}", first, second, ld)
-
-
+  println!("{:?}", distance);
 }
