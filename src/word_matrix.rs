@@ -30,3 +30,33 @@ fn zero_padded_array(size: &usize, first_val: &usize) -> Vec<i32> {
   zero_vec[0] = *first_val as i32;
   zero_vec
 }
+
+
+#[cfg(test)]
+mod tests {
+  use std::usize;
+
+use super::*;
+
+  #[test]
+  fn test_array_len() {
+    // given
+    let size = 5 as usize;
+    let first_val = 0 as usize;
+    // when
+    let res = zero_padded_array(&size, &first_val);
+    // then
+    assert_eq!(res.len(), size);
+  }
+
+  #[test]
+  fn test_first_value_set() {
+    // given
+    let size = 5 as usize;
+    let first_val = 4 as usize;
+    // when
+    let res = zero_padded_array(&size, &first_val);
+    // then
+    assert_eq!(res[0], first_val as i32);
+  }
+}
